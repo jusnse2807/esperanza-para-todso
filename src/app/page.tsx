@@ -1,101 +1,104 @@
-import Image from "next/image";
+import React from 'react';
+import { Heart, Users, Globe, Handshake, HeartHandshake } from 'lucide-react';
 
-export default function Home() {
+interface Partner {
+  name: string;
+  logo: string;
+}
+
+const EsperanzaParaTodos: React.FC = () => {
+  const partners: Partner[] = [
+    { name: 'Cruz Roja Colombiana', logo: "/cruz-roja.png"  },
+    { name: 'Fundación Colombiana de Trasplantes', logo: "/rinon.png" },
+    { name: 'Ministerio de Salud', logo: "/seguro-de-salud.png" },
+    { name: 'Organización Mundial de la Salud', logo: "/aplicacion-de-salud.png" }
+  ];
+
+  
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-white text-gray-800">
+      {/* Header */}
+      <header className="bg-blue-50 shadow-sm py-4 px-6">
+        <nav className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <Heart className="text-blue-600" size={40} />
+            <h1 className="text-2xl font-bold text-blue-800">Esperanza Para Todos</h1>
+          </div>
+          <ul className="flex space-x-6 text-blue-700">
+            <li><a href="#nosotros" className="hover:text-blue-900">Nosotros</a></li>
+            <li><a href="#socios" className="hover:text-blue-900">Socios</a></li>
+            <li><a href="#Donaciones" className="hover:text-blue-900">Donaciones</a></li>
+          </ul>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Sobre Nosotros */}
+      <section id="nosotros" className="container mx-auto py-16 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 className=" text-3xl font-bold text-blue-800 mb-6">Sobre Nosotros</h2>
+          <p className="text-black-700 leading-relaxed">
+            Somos una organización colombiana comprometida con salvar vidas a través de la donación de órganos. 
+            Desde nuestra fundación, hemos logrado conectar a más de 500 donantes con pacientes que necesitan 
+            trasplantes, transformando esperanza en vida real.
+          </p>
+          <div className="flex space-x-4 mt-6">
+            <Globe className="text-blue-600" size={40} />
+            <Users className="text-blue-600" size={40} />
+            <Handshake className="text-blue-600" size={40} />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className="flex justify-end">
+        <img 
+           src="/handsHelp.jpg" 
+           alt="Hands Helping" 
+           className="rounded-full shadow-md w-96 h-96 object-cover object-center animate-float"
+/>
+        </div>
+      </section>
+
+      {/* Aliados */}
+      <section id="socios" className="bg-blue-50 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold text-blue-800 mb-10">Nuestros Aliados Estratégicos</h2>
+          <div className="flex justify-center space-x-8">
+            {partners.map((partner, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name} 
+                  className="w-24 h-24 mb-4 rounded-full"
+                />
+                <p className="text-black-700">{partner.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Donaciones */}
+      <section id="Donaciones" className="bg-blue-50 py-16"></section>
+      <section className="container mx-auto py-16 text-center">
+        <h2 className="text-3xl font-bold text-blue-800 mb-10">Tu Acción Puede Salvar Vidas</h2>
+        <div className="flex justify-center space-x-20">
+          <button className="w-64 bg-blue-500 text-white px-8 py-4 rounded-2xl 
+          hover:bg-blue-600 transition">
+            Quiero Donar un Órgano
+          </button>
+          <button className="w-64 bg-blue-500 text-white px-8 py-4 rounded-2xl
+           hover:bg-blue-600 transition">
+            Necesito un Órgano
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-blue-800 text-white py-6">
+        <div className="mt-4 text-2xl text-blue-100 text-center">
+          <p>El Aporte Que Salva Vidas</p>
+        </div>
       </footer>
     </div>
   );
-}
+};
+
+export default EsperanzaParaTodos;
